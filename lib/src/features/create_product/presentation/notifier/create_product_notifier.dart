@@ -1,11 +1,3 @@
-import 'dart:io';
-
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-import 'package:intl_phone_field/countries.dart';
-import 'package:agro_app/src/core/constants/firebase/firebase_storage_constants.dart';
 import 'package:agro_app/src/core/enum/product_enums.dart';
 import 'package:agro_app/src/core/router/router_provider.dart';
 import 'package:agro_app/src/core/service/injectable/injectable_service.dart';
@@ -25,7 +17,10 @@ import 'package:agro_app/src/features/products/domain/usecases/update_product_us
 import 'package:agro_app/src/features/products/presentation/notifier/products_page_notifier.dart';
 import 'package:agro_app/src/features/sign_up/presentation/widgets/list_of_country_codes.dart';
 import 'package:agro_app/src/features/user_products/presentation/notifier/user_products_page_notifier.dart';
-import 'package:uuid/uuid.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:intl_phone_field/countries.dart';
 
 import 'create_product_state.dart';
 
@@ -295,23 +290,7 @@ class CreateProductNotifier extends StateNotifier<CreateProductState> {
   }) async {
     state = state.copyWith(fileUploading: true);
     try {
-      final reference = FirebaseStorage.instance.ref();
-      final dir = reference.child(FirebaseStorageConstants.dirPath);
-      final fileName = const Uuid().v1();
-
-      final newImage = dir.child(fileName);
-      await newImage.putFile(File(photoPath));
-      final imageUrl = await newImage.getDownloadURL();
-
-      if (index != -1) {
-        final imageUrls = [...state.imageUrls];
-        imageUrls[index] = imageUrl;
-        state = state.copyWith(imageUrls: imageUrls, fileUploading: false);
-        return;
-      }
-
-      state = state.copyWith(
-          imageUrls: [...state.imageUrls, imageUrl], fileUploading: false);
+      // TODO: add upload of img
     } catch (e) {
       debugPrint(e.toString());
       state = state.copyWith(fileUploading: false);
