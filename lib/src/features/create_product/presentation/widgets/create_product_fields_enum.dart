@@ -1,0 +1,15 @@
+enum CreateProductErrorFields {
+  name,
+  description,
+  type,
+  category,
+  serviceType,
+  storageType,
+  origin,
+  year,
+  phoneWhatsapp,
+  grade,
+  humidity,
+  price,
+  location,
+}

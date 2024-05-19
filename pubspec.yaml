@@ -1,0 +1,94 @@
+name: agro_app
+description: A new Flutter project.
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: "^3.0.0"
+
+dependency_overrides:
+  intl: ^0.18.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_localizations:
+    sdk: flutter
+
+  #Network
+  dio: ^5.3.2
+
+  #Generating Mock Data
+  mocktail: ^1.0.0
+
+  #Localization
+  intl: ^0.18.0
+  intl_utils: ^2.8.1
+
+  #Tools
+  l: ^4.0.0
+  fpdart: ^1.1.0
+  stack_trace: ^1.11.0
+
+  #Dependency Injection
+  injectable: ^2.1.1
+  get_it: ^7.2.0
+
+  # Validation & phone fielder
+  email_validator: '^2.1.16'
+  intl_phone_field: ^3.1.0
+
+  # Carousel slide for images
+  carousel_slider: ^4.2.1
+
+  #State Management
+  flutter_riverpod: ^2.1.1
+
+  #Navigation and routing
+  go_router: ^6.0.1
+
+  freezed_annotation: ^2.2.0
+  pull_to_refresh: ^2.0.0
+  flutter_svg: ^2.0.5
+  dotted_border: ^2.0.0+3
+  calendar_date_picker2: ^0.5.2
+  image_picker: ^1.0.2
+  #UUID generation
+  uuid: ^3.0.7
+  lottie: ^2.6.0
+
+  #Local DB
+  shared_preferences: ^2.2.1
+
+  permission_handler: ^11.0.0
+  image_cropper: ^5.0.0
+  app_settings: ^5.1.1
+  firebase_storage: ^11.2.7
+  firebase_core: ^2.16.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  injectable_generator: ^2.4.0
+  build_runner: ^2.3.2
+  freezed: ^2.2.0
+  json_serializable: ^6.3.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    # - assets/icons/
+    - assets/images/
+
+flutter_intl:
+  enabled: true
+
+flutter_gen:
+  output: lib/generated/
+  line_length: 80
+  integrations:
+    flutter_svg: true
